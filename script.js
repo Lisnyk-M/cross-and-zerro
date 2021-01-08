@@ -15,7 +15,7 @@ window.onload = function () {
         let pes = null;
         // const idCurrentCell = this.id;
         const numberClickedCell = this.id.substring(this.id.length - 1)
-        console.log('numberClickedCell: ', numberClickedCell);
+        // console.log('numberClickedCell: ', numberClickedCell);
         // all.field[this.id.substring(this.id.length-1)] = 'cross';
         //координата х = ID клєтки % 3;
         //координата y = floor(ID клєтки / 3);
@@ -51,7 +51,7 @@ window.onload = function () {
 
                         all.computerMove(pes.free, 'zerro');
                         // all.playSound(snd.step);
-                        console.log('1 free place and 2 zerros');
+                        // console.log('1 free place and 2 zerros');
                     }
                     else {
                         pes = all.isFreeTwo('empty', 'zerro'); //провіряємо чи є два пустих місця і один свій символ
@@ -59,15 +59,15 @@ window.onload = function () {
 
                             all.computerMove(pes.free, 'zerro');
                             // all.playSound(snd.step);
-                            console.log('2 free places and 1 zerro', pes.free);
+                            // console.log('2 free places and 1 zerro', pes.free);
                         }
                         else {
                             if (all.getRandomFreeCorner() != -1) {
-                                console.log('.sounddddddddddddd');
+                                // console.log('.sounddddddddddddd');
 
                                 all.computerMove(all.getRandomFreeCorner(), 'zerro');
                                 // all.playSound(snd.wrong);
-                                console.log('Corner: ', all.getRandomFreeCorner());
+                                // console.log('Corner: ', all.getRandomFreeCorner());
                             }
                             else {
                                 if (all.getRandomFreeCells() != -1) {
@@ -79,7 +79,7 @@ window.onload = function () {
                     }
                 }
             }
-            console.log('get free cells: ', all.getRandomFreeCells());
+            // console.log('get free cells: ', all.getRandomFreeCells());
         }
         else {
             all.playSound(snd.nothing);
@@ -209,13 +209,13 @@ window.onload = function () {
     if (t == 0) {
         if (!all.isWrong)
             th2.playSound(th2.createSound().step);
-        console.log('winner: ', all.isWinner());
+        // console.log('winner: ', all.isWinner());
         if (all.isWinner().winner == 'cross' || all.isWinner().winner == 'zerro') {
             console.log('win');
             all.playSound(snd.win);
         }
 
-        console.log('isNothing: ', all.isNothing());
+        // console.log('isNothing: ', all.isNothing());
         if (all.isNothing()) {
             all.playSound(snd.wrong);
         }
@@ -293,7 +293,7 @@ isFreeTwo(symbol, elseSymbol) {
             if (this.field[line[free]] == elseSymbol) { //і якщо є вільне місце 
                 // const freeCels = [0, 1, 2];
                 const freeCells = [0, 1, 2].filter(num => num !== free); //виключаємо з рандома заняте місце
-                console.log('freeCells: ', freeCells);
+                // console.log('freeCells: ', freeCells);
                 free = freeCells[Math.floor(Math.random() * 2)];    //вибираємо випадково одне з двох вільних місць
                 return { must: true, free: line[free] }         //вернути номер поля з вільним місцем
             }
@@ -344,7 +344,7 @@ isWinner() {
             winnerCells.push(document.getElementById(`img-${this.linesV2[i][0]}`));
             winnerCells.push(document.getElementById(`img-${this.linesV2[i][1]}`));
             winnerCells.push(document.getElementById(`img-${this.linesV2[i][2]}`));
-            console.log('tttt: ',this.linesV2[i][2]);
+            // console.log('tttt: ',this.linesV2[i][2]);
             // console.log('winnerCells: ', winnerCells);
             // this.animate(winnerCells);
             
@@ -374,7 +374,7 @@ getFirstFreeCorner() {
 getRandomFreeCorner() {
     // const corners = [0, 2, 6, 8];
     const corners = [0, 2, 6, 8].filter(num => this.field[num] == 'empty');
-    console.log('corners: ', corners);
+    // console.log('corners: ', corners);
     if (corners.length > 1) {   //якщо два і більше елементів то вибирати випадково
         return corners[Math.floor(Math.random() * corners.length)];
     }
@@ -392,7 +392,7 @@ getRandomFreeCells(){
             tr.push(i);
         }
     }
-    console.log('tr: ', tr);
+    // console.log('tr: ', tr);
     return tr.length > 0 ? tr[Math.floor(Math.random() * tr.length)] : -1;
     // return tr[Math.floor(Math.random() * tr.length)];
 },
@@ -410,7 +410,7 @@ playSound(sound) {
     }//all
 
 // console.log(field);
-console.log(all.renderField());
+// console.log(all.renderField());
 // let pes = all.whoMove();
 // pes();
 // console.log(all.whoMove()());
