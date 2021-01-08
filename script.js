@@ -397,11 +397,11 @@ getRandomFreeCells(){
     // return tr[Math.floor(Math.random() * tr.length)];
 },
 createSound() {
-    let step = new Audio('sounds/Sound_08079.mp3');
-    let step2 = new Audio('sounds/Sound_08079_copy.mp3');
-    let win = new Audio('sounds/Sound_11088.wav.mp3');
-    let wrong = new Audio('sounds/Sound_11089.wav.mp3');
-    let nothing = new Audio('sounds/Sound_16665.mp3');
+    let step = new Audio('./sounds/Sound_08079.mp3');
+    let step2 = new Audio('./sounds/Sound_08079_copy.mp3');
+    let win = new Audio('./sounds/Sound_11088.wav.mp3');
+    let wrong = new Audio('./sounds/Sound_11089.wav.mp3');
+    let nothing = new Audio('./sounds/Sound_16665.mp3');
     return { step, step2, win, wrong, nothing };
 },
 playSound(sound) {
